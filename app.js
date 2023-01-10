@@ -16,6 +16,14 @@ app.use(express.json());
 
 const port = 3000;
 
+app.post('/', (req, res) =>{
+    const firstName = req.body.fName;
+    const lastName = req.body.lName;
+    const email = req.body.email;
+
+    console.log(firstName, lastName, email);
+})
+
 app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/signup.html");
 })
