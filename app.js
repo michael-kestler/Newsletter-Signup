@@ -21,7 +21,36 @@ app.post('/', (req, res) =>{
     const lastName = req.body.lName;
     const email = req.body.email;
 
+    const data = {
+        members: [
+            {
+                email_address: email,
+                status: "subscribed",
+                merge_fields: {
+                    FNAME: firstName,
+                    LNAME: lastName
+                }
+            }
+        ]
+    }
+    const jsonData = JSON.stringify(data);
+
+    const url = "https://us21.api.mailchimp.com/3.0/lists/84ac8765bb"
+
+    const options = {
+        method: "POST",
+        auth:"michael1:" + process.env.API_KEY
+    }
     console.log(firstName, lastName, email);
+
+    const request = https.request(url, options, (response) =>{
+        response.on("data", (data) =>{
+            console.log(JSON.parse(data));
+        });
+
+    })
+    request.write(jsonData);
+    request.end();
 })
 
 app.get("/", (req, res)=>{
