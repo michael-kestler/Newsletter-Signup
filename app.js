@@ -6,6 +6,10 @@ require('dotenv').config();
 
 const app = express();
 
+//Code to use instead of body parser
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 
 const port = 3000;
 
