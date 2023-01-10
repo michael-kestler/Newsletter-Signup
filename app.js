@@ -6,6 +6,9 @@ require('dotenv').config();
 
 const app = express();
 
+//for serving static images, css files, and js files
+app.use(express.static("public"));
+
 //Code to use instead of body parser
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
