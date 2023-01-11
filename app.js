@@ -43,6 +43,8 @@ app.post('/', (req, res) =>{
         method: "POST",
         auth:"michael1:" + apiKey
     }
+
+    console.log(apiKey);
     console.log(firstName, lastName, email);
 
     const request = https.request(url, options, (response) =>{
