@@ -39,7 +39,7 @@ app.post('/', (req, res) =>{
 
     const options = {
         method: "POST",
-        auth: process.env.API_KEY
+        // auth:"michael1" + process.env.API_KEY
     }
     console.log(firstName, lastName, email);
 
@@ -56,6 +56,10 @@ app.post('/', (req, res) =>{
 
     request.write(jsonData);
     request.end();
+})
+
+app.post("/failure", (req, res) =>{
+    res.redirect("/");
 })
 
 app.get("/", (req, res)=>{
