@@ -39,7 +39,7 @@ app.post('/', (req, res) =>{
 
     const options = {
         method: "POST",
-        auth:"michael1:" + process.env.API_KEY
+        auth: process.env.API_KEY
     }
     console.log(firstName, lastName, email);
 
